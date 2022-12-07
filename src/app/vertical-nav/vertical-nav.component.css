@@ -1,0 +1,6 @@
+#vertical-nav {
+    display: flex; 
+    height: 100vh; 
+    overflow:scroll initial; 
+    position: fixed;
+}

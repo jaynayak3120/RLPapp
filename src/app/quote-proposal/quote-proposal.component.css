@@ -1,0 +1,23 @@
+#proposal-heading {
+    padding-top: 17px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    background-color: #333333;
+    Color: #ffffff;
+    width: 84%;
+    position: fixed;
+    z-index: 999;
+}
+
+#qote-proposal-detail {
+    padding-top: 110px;
+}
+
+#proposal-line-detail {
+    padding-top: 45px;
+    padding-bottom: 40px;
+}
+
+.pt-3-half {
+    padding-top: 1rem;
+}

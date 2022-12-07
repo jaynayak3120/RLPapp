@@ -1,0 +1,29 @@
+<div class="app" id="vertical-nav">
+    <CDBSidebar textColor="#ffffff" backgroundColor="#333333">
+        <CDBSidebarHeader [prefix]="icon" >
+            <ng-template #icon>
+                <!--i class="fa fa-bars fa-large"></i-->
+            </ng-template>
+            Conga RLP
+        </CDBSidebarHeader>
+
+        <CDBSidebarContent>
+            <CDBSidebarMenu class="sidebar-content">
+                <CDBSidebarMenuItem link='/' icon="columns" >
+                    Quote/Proposal
+                </CDBSidebarMenuItem>
+                <CDBSidebarMenuItem link='/agr' icon="table" >
+                    Agreement
+                </CDBSidebarMenuItem>
+            </CDBSidebarMenu>
+        </CDBSidebarContent>
+        <div class="mt-auto">
+
+            <CDBSidebarFooter style="text-align: center; margin-top: auto;">
+                <div class="sidebar-btn-wrapper" style="padding: 20px 5px">
+                    
+                </div>
+            </CDBSidebarFooter>
+        </div>
+    </CDBSidebar>
+</div>

@@ -1,0 +1,23 @@
+#agreement-heading {
+    padding-top: 17px; 
+    padding-bottom: 10px;
+    padding-left: 50px;
+    background-color: #333333; 
+    Color: #ffffff;
+    position: fixed;
+    width: 84%;
+    z-index: 999;
+}
+
+#agreement-detail {
+    padding-top: 110px;
+}
+
+#agreement-line-detail {
+    padding-top: 45px;
+    padding-bottom: 40px;
+}
+
+.pt-3-half {
+    padding-top: 1rem;
+  }

@@ -1,0 +1,122 @@
+<div class="row" id="proposal-heading">
+    <div class="col-8">
+        <h2>Quote-Proposal</h2>
+    </div>
+    <div class="col-4">
+        <button class="btn danger offset-4">Composer API</button>
+        <button class="btn danger offset-1">Sign API</button>
+    </div>
+</div>
+
+
+<div class="row" id="qote-proposal-detail">
+    <div class="card offset-1 col-10">
+        <div class="card-header row">
+            <strong class="text-uppercase">
+                Quote-Proposal Details
+            </strong> 
+        </div>
+        <div class="row">
+            <ul class="list-group list-group-flush col-6">
+                <li class="list-group-item">Proposal Name:  {{proposalDetail.ProposalName}}</li>
+                <li class="list-group-item">Account Name:  {{proposalDetail.AccountName}}</li>
+                <li class="list-group-item">Primary Contact:  {{proposalDetail.PrimaryContact}}</li>
+            </ul>
+            <ul class="list-group list-group-flush col-6">
+                <li class="list-group-item">
+                    Start Date: {{formatDate(proposalDetail.StartDate)}}
+                </li>
+                <li class="list-group-item">
+                    End Date:  {{formatDate(proposalDetail.EndDate)}}
+                </li>
+                <li class="list-group-item"></li>
+            </ul>
+        </div>  
+    </div>
+</div>
+
+
+<div class="row" id="proposal-line-detail">
+    <div class="card col-10 offset-1">
+        <div class="card-header font-weight-bold text-uppercase row">
+            <div class="col-6">Proposal Line Details</div>
+            <button type="button" class="btn btn-primary float-right btn-rounded btn-sm col-1 offset-5" 
+            (click)="openModal()">
+                Add Line
+            </button>
+        </div>
+        <div class="card-body">
+            <div id="table" class="table-editable row">
+                <table class="table table-bordered table-responsive-md table-striped text-center">
+                <thead>
+                    <tr>
+                    <th class="text-center">Line No</th>
+                    <th class="text-center">Product Name</th>
+                    <th class="text-center">Product Type</th>
+                    <th class="text-center">List Price</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Net Price</th>
+                    <th class="text-center">Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let proposalLine of proposalLines; index as i;">
+                    <td class="pt-3-half" contenteditable="false">{{i+1}}</td>
+                    <td class="pt-3-half text-left" contenteditable="false">{{proposalLine.ProductName}}</td>
+                    <td class="pt-3-half" contenteditable="false">{{proposalLine.ProductType}}</td>
+                    <td class="pt-3-half text-right" contenteditable="false">$ {{proposalLine.ListPrice}}</td>
+                    <td class="pt-3-half" contenteditable="false">{{proposalLine.Quantity}}</td>
+                    <td class="pt-3-half text-right">$ {{proposalLine.NetPrice}}</td>
+                    <td>
+                        <span class="table-remove">
+                            <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" (click)="onRemove(i)">
+                                Remove
+                            </button>
+                        </span>
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Agreement Line Item</h4>
+                <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+            </div>
+           <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Product Name:</label>
+                        <input type="text" class="form-control" id="productName" #productName required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Product Type:</label>
+                        <input type="text" class="form-control" id="productType" #productType required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">List Price:</label>
+                        <input type="number" class="form-control" id="listPrice" #listPrice>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Quantity:</label>
+                        <input type="number" class="form-control" id="quantity" #quantity>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Net Price:</label>
+                        <input type="number" class="form-control" id="netPrice" #netPrice>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default primary" (click)="onSave(productName,productType,listPrice,quantity,netPrice)">Save</button>
+                <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+            </div>
+       </div>
+    </div>
+</div>
